@@ -1,5 +1,9 @@
 <% extend 'layout' %>
 
+<div>
+  <%- @sessionCount %>
+</div>
+
 <div id="<%- @id %>">
   <h1><%- @upperHelper @title %></h1>
   <% include 'list' %>

@@ -1,8 +1,12 @@
 var express = require('express');
 var router = express.Router();
 
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
+
+  req.session.count = req.session && req.session.count ? req.session.count+1 : 1;
+
   res.render('index', {
     title : 'Hello, world!',
     id : 'main',
@@ -13,7 +17,8 @@ router.get('/', function(req, res, next) {
     ],
     upperHelper : function (string) {
       return string.toUpperCase();
-    }
+    },
+    sessionCount: req.session.count
   });
 });
 
